@@ -1,7 +1,6 @@
 # WanderLust
 
-```markdown
-# Online Accommodation App
+## Online Accommodation App
 
 Welcome to the Online Accommodation App! This project provides a platform for users to discover, list, and manage accommodations.
 
@@ -79,4 +78,3 @@ This project is property of Puneet Bajaj. You are not allowed to use it for gett
 ---
 
 Happy coding! 🚀
-```
