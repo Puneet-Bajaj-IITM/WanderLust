@@ -56,16 +56,6 @@ app.use("/listings", listings);
 app.use("/listings/:id/reviews", reviews);
 
 
-//Admin route
-// app.get("/admin", (req, res) => {
-//     const {token} = req.query;
-//     if(token !== "Admin"){
-//         throw new ExpressError(401, "Access Denied");
-//     }
-//     res.send("Admin");
-//     next();
-// })
-
 app.all("*", (req, res, next) => {
     next(new ExpressError(404, "Page Not Found!"))
 })
@@ -77,7 +67,7 @@ app.use((err, req, res, next) => {
     res.render("error.ejs", {message});
 })
 
-app.listen(7860, () => {
-    console.log("Listening at port 7860");
+app.listen(3000, () => {
+    console.log("Listening at port 3000");
 })
 
