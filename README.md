@@ -32,7 +32,7 @@ To get this project up and running on your local machine, follow these steps:
 1. Clone this repository:
 
    ```shell
-   git clone https://github.com/your-username/accommodation-app.git
+   git clone https://github.com/Puneet-Bajaj-IITM/WanderLust.git
    ```
 
 2. Install the project dependencies:
