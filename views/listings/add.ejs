@@ -1,0 +1,42 @@
+<% layout("../layouts/boilerplate") %>
+<body>
+    <form method="post" novalidate class="needs-validation" action="/listings"><br>
+        <div class="col-10 form-style offset-1">
+            <div class="row">
+                <label for="title" class="form-label" >Title : </label>
+                <input type="text" name="title" id="" placeholder="Add a catchy Title" required class="form-control mb-3"><br>
+                <div class="invalid-feedback">Enter a valid Title</div>
+            </div>
+            <div class="row">
+                <label for="description" class="form-label">Description : </label>
+                <textarea name="description" id="" cols="30" required rows="6" class="form-control mb-3" placeholder="It was an excellent experience...."></textarea><br>
+                <div class="invalid-feedback">Enter a valid Description</div>
+            </div>
+            <div class="row">
+                <label for="image" class="form-label">Image URL : </label>
+                <input type="text" name="image" id="" placeholder="https://........" class="form-control mb-3" ><br>
+            </div>
+            <div class="row">
+                <label for="location" class="form-label">Location : </label>
+                <input type="text" name="location" placeholder="Jalanhar, Punjab" id="" class="form-control mb-3" required>
+                <div class="invalid-feedback">Enter a Valid Location</div>
+            </div>
+            <div class="row ">
+                <div class="col-md-4">
+                    <label for="country" class="form-label">Country : </label>
+                    <input type="text" name="country" placeholder="United States of America" id="" class="form-control mb-3" required><br>
+                    <div class="invalid-feedback">Enter a valid Country</div>
+                </div>
+                <div class="col-md-8">
+                    <label for="price" class="form-label">Price : </label>
+                    <input type="number" name="price" placeholder="10000000......" id="" class="form-control mb-3" required>
+                    <div class="invalid-feedback">Enter a valid Price</div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-dark mb-3">Add Listing</button>
+            </div>
+        </div>
+        
+    </form>
+</body>
