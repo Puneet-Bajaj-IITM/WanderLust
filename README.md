@@ -40,19 +40,14 @@ To get this project up and running on your local machine, follow these steps:
    git clone https://github.com/Puneet-Bajaj-IITM/WanderLust.git
    ```
 
-2. Install the project dependencies:
+2. Install the project dependencies
 
-   ```shell
-   cd accommodation-app
-   npm install
-   ```
-
-3. Configure your MongoDB database connection by updating `config.js`.
+3. Configure your MongoDB database connection by updating `./init/index.js`.
 
 4. Start the server:
 
    ```shell
-   npm start
+   nodemon index.js
    ```
 
 Your app should now be running at `http://localhost:3000`.
