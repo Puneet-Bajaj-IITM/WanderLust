@@ -12,12 +12,17 @@ Welcome to the Online Accommodation App! This project provides a platform for us
 - [Contributing](#contributing)
 - [License](#license)
 
+
 ## Features
-- User-friendly interface for searching and viewing accommodations.
-- Easy listing management with options to update property details, add new listings, and gather user reviews.
-- Robust error handling for a smooth user experience.
-- Seamless database connectivity using Mongoose.
-- A visually appealing frontend created with EJS and Bootstrap.
+WanderLust boasts a range of features to enhance your accommodation experience:
+- User-friendly interface for seamless accommodation search and viewing.
+- Streamlined listing management, enabling updates, new listings, and user reviews.
+- Robust error handling for a smooth and trouble-free user experience.
+- Effortless database connectivity using Mongoose.
+- A visually appealing and intuitive frontend developed with EJS and Bootstrap.
+- RESTful APIs for efficient communication and data interaction.
+- Adherence to the MVC (Model-View-Controller) framework for a well-organized and maintainable codebase.
+
 
 ## Technologies Used
 - Node.js
