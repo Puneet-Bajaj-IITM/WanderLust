@@ -1,14 +1,15 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const Review = require("./review.js");
+const User = require("./user.js");
+const { array } = require("joi");
 
 const listingSchema = new Schema({
     title: String,
     description: String,
     image: {
-        type: String,
-        default: "https://media.istockphoto.com/id/510019534/photo/perfect-skin-close-up-of-an-attractive-girl.webp?s=2048x2048&w=is&k=20&c=b6lRzjRXGCN3sZQ8SU3O-qDnWEgmnnOYbcaXGHSZ7G0=",
-        set: (v) => v === "" ? "https://media.istockphoto.com/id/510019534/photo/perfect-skin-close-up-of-an-attractive-girl.webp?s=2048x2048&w=is&k=20&c=b6lRzjRXGCN3sZQ8SU3O-qDnWEgmnnOYbcaXGHSZ7G0=" : v,
+        url: String,
+        filename: String,
     },
     price: {
         type: Number,
@@ -22,9 +23,30 @@ const listingSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: "Review",
         }
-    ]
-
+    ],
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
+    type:{
+        type: [String],
+        enum: ["Trending", "Arctic", "Amazing-pools","Farms", "Amazing-views", "surfing", "Islands", "Lakefront","Beachfront", "Rooms", "Cabins",'OMG!',"Tiny-homes", "Countryside" ],
+    },
+    geometry: {
+        type:{
+            type: String,
+            enum: ["Point"],
+            required: true,
+        },
+        coordinates:{
+            type: [Number],
+            default: [70, 70],
+            required: true,
+        },
+    },
 });
+
+//----Deleting reviews after listing deletion ------//
 
 listingSchema.post("findOneAndDelete", async (listing) => {
     if (listing) {

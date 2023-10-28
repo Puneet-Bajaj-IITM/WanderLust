@@ -5,6 +5,10 @@ body{
     min-height: 100vh;
 }
 
+.round{
+    border-radius: 6px !important;
+}
+
 .container{
     flex: 1;
 }
@@ -101,3 +105,9 @@ a{
         margin-left: 1.5rem !important;
     }
 }
+
+/* Map */
+#map { 
+    height: 20rem;
+    width: 40vw;
+ }

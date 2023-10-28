@@ -1,19 +1,139 @@
 <% layout("../layouts/boilerplate") %>
 
 <body>
-    <h3 class="mt-3">All Listings</h3>
-    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 row-cols-xsm-2">
+    <style>
+        .filters{
+            margin: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+        }
+        .filter{
+            margin: 1rem;
+            text-align: center;
+            font-size: larger;
+            opacity: .6;
+        }
+        .filter:hover{
+            opacity: 1;
+        }
+        .filter-para{
+            font-size: .8rem;
+        }
+        .filter i{
+            font-size: larger;
+        }
+        .filter a{
+            text-decoration: none;
+            color: #222;
+        }
+        .tax-toggle{
+            padding: .5rem .8rem;
+            height: 2.5rem;
+            border: 1px solid #222;
+            border-radius: 1rem;
+            margin: 1rem 0;
+        }
+        .gst{
+            display: none;
+        }
+    </style>
+    <div class="filters">
+        <div class="filter">
+            <a href="/listings">
+                <i class="fa-solid fa-location-arrow"></i>
+                <p class="filter-para">All Listings</p>
+            </a>
+        </div>
+        
+        <div class="filter">
+            <a href="/listings/filter/Trending">
+                <i class="fa-solid fa-square-poll-vertical"></i>
+                <p class="filter-para">Trending</p>
+            </a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Arctic">
+            <i class="fa-regular fa-snowflake"></i>
+            <p class="filter-para">Arctic</p>
+        </a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Amazing-pools">
+            <i class="fa-solid fa-person-swimming"></i>
+            <p class="filter-para">Amazing pools</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Amazing-views">
+            <i class="fa-solid fa-street-view"></i>
+            <p class="filter-para">Amazing views</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Surfing">
+            <i class="fa-solid fa-person-snowboarding"></i>            
+            <p class="filter-para">Surfing</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Islands">
+            <i class="fa-solid fa-mountain-sun"></i>            
+            <p class="filter-para">Islands</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Lakefront">
+            <i class="fa-solid fa-water"></i>            
+            <p class="filter-para">Lakefront</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Beachfront">
+            <i class="fa-solid fa-umbrella-beach"></i>            
+            <p class="filter-para">Beachfront</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Cabins">
+            <i class="fa-solid fa-house-user"></i>            
+            <p class="filter-para">Cabins</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/OMG!">
+            <i class="fa-solid fa-fan"></i>            
+            <p class="filter-para">OMG!</p></a>
+        </div>
+        <div class="filter"><a href="/listings/filter/Countryside">
+            <i class="fa-solid fa-earth-asia"></i>            
+            <p class="filter-para">Countryside</p></a>
+        </div>
+        <div class="tax-toggle">
+            <div class="form-check form-switch form-check-reverse">
+                <input type="checkbox" role="switch" class="form-check-input " id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Display Price after Taxes</label>
+            </div>
+        </div>
+    </div>
+
+        <% if(data.length == 0){ %>
+        
+                <div class="alert alert-success alert-dismissible fade show col-8 offset-2" role="alert">
+                    Will be Available shortly!!!.... 
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            
+        <% } %>
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-2 mt-3 mb-3 row-cols-xsm-2">
         <%for (listing of data){ %>
             <a href="/listings/<%= listing._id %>" >
                 <div class="card ind-card mb-3 col" >
-                    <img src="<%= listing.image %>" class="card-img-top"style="height: 18rem; " alt="Listing_image">
+                    <img src="<%= listing.image.url %>" class="card-img-top" style="height: 18rem; " alt="<%= listing.image.filename %>">
                     <div class="card-img-overlay"></div>
                     <div class="card-body">
                         <h5 class="card-title"><b><%= listing.title %></b></h5>
-                        <p class="card-text"><span>Price: &#8377; <%= listing.price.toLocaleString("en-IN") %> /night</span></p>
+                        <p class="card-text">Price: &#8377; <%= listing.price.toLocaleString("en-IN") %> /night <span class="gst">&nbsp; &nbsp;+ 18 % GST</span></p>
                     </div>
                 </div>
             </a>
         <% } %>
     </div>
+    <script>
+        let toggleSwitch = document.getElementById("flexSwitchCheckDefault");
+        let gst = document.getElementsByClassName("gst")
+        toggleSwitch.addEventListener("click", () => {
+            for (const info of gst) {
+                if(info.style.display != "inline"){
+                    info.style.display = 'inline';
+                }else{
+                    info.style.display = "none";
+                }
+            }
+        })
+    </script>
 </body>
