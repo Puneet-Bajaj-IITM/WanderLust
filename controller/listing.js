@@ -15,7 +15,7 @@ module.exports.renderEditForm = async (req, res) => {
         res.redirect("/listings");
     } else {
         let previewUrl = data.image.url.replace("uploads", "uploads/c_fill,h_300,w_250");
-        res.render("Update.ejs", {data, previewUrl});
+        res.render("update.ejs", {data, previewUrl});
     }
 }
 
