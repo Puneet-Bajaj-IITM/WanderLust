@@ -8,7 +8,7 @@ main()
     .catch(err => console.log(err));
 
 async function main(){
-    await mongoose.connect("mono-url");
+    await mongoose.connect(dbUrl);
 }
 
 const init = async () => {
