@@ -111,3 +111,40 @@ a{
     height: 20rem;
     width: 40vw;
  }
+
+ /* filter */
+ .filters{
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+}
+.filter{
+    margin: 1rem;
+    text-align: center;
+    font-size: larger;
+    opacity: .6;
+}
+.filter:hover{
+    opacity: 1;
+}
+.filter-para{
+    font-size: .8rem;
+}
+.filter i{
+    font-size: larger;
+}
+.filter a{
+    text-decoration: none;
+    color: #222;
+}
+.tax-toggle{
+    padding: .5rem .8rem;
+    height: 2.5rem;
+    border: 1px solid #222;
+    border-radius: 1rem;
+    margin: 1rem 0;
+}
+.gst{
+    display: none;
+}

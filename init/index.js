@@ -8,7 +8,7 @@ main()
     .catch(err => console.log(err));
 
 async function main(){
-    await mongoose.connect(dbUrl);
+    await mongoose.connect("mongodb://localhost:27017");
 }
 
 const init = async () => {
@@ -22,6 +22,7 @@ const init = async () => {
             filename: "initailFile",
         }
     }
+    console.log(data);
     await Listing.insertMany(data);
     console.log("data was saved");
 

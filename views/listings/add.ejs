@@ -1,4 +1,5 @@
 <% layout("../layouts/boilerplate") %>
+
 <body>
     <form method="post" novalidate class="needs-validation" enctype="multipart/form-data" action="/listings"><br>
         <div class="col-10 form-style offset-1">
@@ -15,6 +16,16 @@
             <div class="row">
                 <label for="image" class="form-label">Upload Image : </label>
                 <input type="file" required name="image" id="" placeholder="https://........" class="form-control mb-3" ><br>
+            </div>
+            <div class="row">
+                <label for="type" class="form-label">Category : </label>
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                <% for(const i of list) {%>
+                    <input type="radio" class="btn-check" value="<%=i%>" name="type" required id="btnradio<%=i%>" autocomplete="off">
+                    <label class="btn btn-outline-primary" for="btnradio<%=i%>"><%=i%></label>
+                <% } %>
+                <div class="invalid-feedback mt-3">Select a valid Category</div>
+            </div>
             </div>
             <div class="row">
                 <label for="location" class="form-label">Location : </label>

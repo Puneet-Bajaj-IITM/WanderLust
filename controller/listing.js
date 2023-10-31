@@ -47,11 +47,13 @@ module.exports.updateListing = async (req, res) => {
 module.exports.filter = async (req, res) => {
     const {f} = req.params;
     const data = await Listing.find({type: {$in : [f]}});
+    data.filter = f;
     res.render("index.ejs", {data});
 }
 
 module.exports.renderNewListingForm =  (req, res) => {
-    res.render("add.ejs");
+    const list = ["Trending", "Arctic","Farms", "surfing", "Islands", "Lakefront","Beachfront", "Rooms", "Cabins",'OMG!', "Countryside" ];
+    res.render("add.ejs", {list});
 }
 
 module.exports.addNewListing = async (req, res) => {
