@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_401b8804017f45dea89c6a157c2fa148 }}/wanderrlust:${{ github.sha }}
+        tags: ghcr.io/puneet-bajaj-iitm/wanderlust/wanderrlust:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
