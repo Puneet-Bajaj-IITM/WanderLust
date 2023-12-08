@@ -1,0 +1,16 @@
+# docker-compose.yaml
+version: '3'
+services:
+  node-app:
+    image: wanderlust
+    container_name: node-app-container
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - /usr/src/app
+    working_dir: /usr/src/app
+    command: npm start
+
+
